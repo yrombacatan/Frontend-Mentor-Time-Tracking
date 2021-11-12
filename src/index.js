@@ -9,7 +9,7 @@ const preHoursElem = document.getElementsByClassName('prev-hours')
 
 const loadJSON = async () => {
     try {
-        const result = await fetch('http://127.0.0.1:5500/data.json')
+        const result = await fetch('https://yrombacatan.github.io/data.json')
         const data = await result.json()
         
         displayData(data)
