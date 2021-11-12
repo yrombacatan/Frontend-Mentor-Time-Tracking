@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+    /* Primary */
+    --p-blue: hsl(246, 80%, 60%);
+    --p-light-red: hsl(15, 100%, 70%);
+    --p-soft-blue: hsl(195, 74%, 62%);
+    --p-light-pink: hsl(348, 100%, 68%);
+    --p-lime-green: hsl(145, 58%, 55%);
+    --p-violet: hsl(264, 64%, 52%);
+    --p-soft-orange: hsl(43, 84%, 65%);
+
+    /* Neutral */
+    --n-very-dark-blue: hsl(226, 43%, 10%);
+    --n-dark-blue: hsl(235, 46%, 20%);
+    --n-desaturated-blue: hsl(235, 45%, 61%);
+    --n-pale-blue: hsl(236, 100%, 87%);
+
+    --border-radius: 1em;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    min-height: 100vh;
+    font-family: "Rubik", sans-serif;
+    background-color: var(--n-very-dark-blue);
+}
+
+.container {
+    padding: 1em;
+}
+
+.card {
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.profile {
+    margin-bottom: 4em;
+}
+
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--p-blue);
+    border-radius: var(--border-radius);
+    padding: 2em 2em;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border: 3px solid #f0f0f0;
+    border-radius: 100%;
+}
+
+.card-body .name-wrapper {
+    padding: 1em;
+}
+
+.report-p {
+    color: var(--n-pale-blue);
+}
+
+.name {
+    color: #f0f0f0;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 2em 0;
+    background-color: var(--n-dark-blue);
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.card-footer::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: -10px;
+    left: 0;
+    background-color: var(--n-dark-blue);
+    z-index: -1;
+}
+
+.card-footer > button {
+    background-color: transparent;
+    border: 0;
+    color: var(--n-pale-blue);
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.b-active {
+    color: white !important;
+}
+
+/* activity card */
+
+.activity-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 4em
+}
+
+.activity .card-body {
+    flex-direction: column;
+    background-color: var(--n-dark-blue);
+}
+
+.card-header {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    top: -40px;
+    left: 0;
+    border-radius: var(--border-radius);
+    z-index: -1;
+}
+
+.card-header img {
+    float: right;
+}
+
+.header-work {
+    background-color: var(--p-light-red);
+}
+
+.header-play {
+    background-color: var(--p-soft-blue);
+}
+
+.header-study {
+    background-color: var(--p-light-pink);
+}
+
+.header-exercise {
+    background-color: var(--p-lime-green);
+}
+
+.header-social {
+    background-color: var(--p-violet);
+}
+
+.header-self-care {
+    background-color: var(--p-soft-orange);
+}
+
+.title-wrapper,
+.hours-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: #f0f0f0;
+}
+
+.title-wrapper {
+    margin-bottom: 1em;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.hours {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.option-btn,
+.prev-hours {
+    color: var(--n-pale-blue)
+}
+
+.prev-hours {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.attribution {
+    width: 100%;
+    min-height: 2em;
+    text-align: center;
+    padding: 2em 1em;
+    color: #f0f0f0;
+}
+
+.attribution a {
+    text-decoration: none;
+    color: var(--n-pale-blue);
+    transition: color .200s ease-in-out;
+}
+
+.attribution a:hover {
+    color: var(--p-blue);
+}
+
+@media screen and (min-width: 768px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        max-width: 60em;
+        display: grid;
+        grid-template-columns: 33.3% 66.3%;
+        grid-template-rows: auto;
+        grid-template-areas: "profile activity"
+                             "profile activity"
+                             "profile activity";
+    }
+
+    .profile {
+        grid-area: profile;
+        margin-right: 1em;
+    }
+
+    .card-footer {
+        display: block;
+        padding-left: 2em;
+    }
+
+    .card-footer button {
+        display: block;
+        margin-top: 1em;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .activity-wrapper {
+        grid-area: activity;
+        flex-direction: initial;
+        gap: 3.5em 1em;
+        padding-top: 2.5em;
+    }
+
+    .activity {
+        flex: 1 1 48.33%;
+    }
+
+    .card-body .name-wrapper {
+        padding: 2em 0 0 0;
+    }
+
+    .name {
+        padding-top: .5em;
+    }
+
+    .prev-hours {
+        margin-top: .5em;
+    }
+
+}
+
+
+@media screen and (min-width: 1340px) {
+
+    .container {
+        grid-template-columns: 25% 75%;
+    }
+    
+    .activity-wrapper {
+        gap: 0 1em;
+    }
+
+    .activity {
+        flex: 1 1 31.33%;
+    }
+}
