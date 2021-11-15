@@ -9,9 +9,14 @@ const preHoursElem = document.getElementsByClassName('prev-hours')
 
 const loadJSON = async () => {
     try {
+        // loader
+        activityWrapper.classList.add('is-loading')
+
         const result = await fetch('https://yrombacatan.github.io/data.json')
         const data = await result.json()
         
+        // stop loader
+        activityWrapper.classList.remove('is-loading')
         displayData(data)
 
     } catch (error) {
